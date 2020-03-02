@@ -3,9 +3,9 @@ export default {};
 </script>
 
 <template>
-  <v-app>
+  <v-app app>
     <v-content>
-      <v-container fluid>
+      <v-container>
         <nuxt />
       </v-container>
     </v-content>
