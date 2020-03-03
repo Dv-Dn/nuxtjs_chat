@@ -1,3 +1,6 @@
+# Deploy link
+https://nuxtjs-chat-d.herokuapp.com/
+
 # nuxtjs_chat
 
 > Nuxtjs, socket.io chat
