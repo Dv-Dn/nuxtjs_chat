@@ -12,9 +12,9 @@ export default {
 </script>
 
 <template>
-  <div class="my-2">
-    <div v-if="name === 'Admin'" class="message__admin mb-1">
-      <p class="text-xs-center pb-1">{{ text }}</p>
+  <div class="my-3">
+    <div v-if="name === 'Admin'" class="message__admin">
+      <p class="text-xs-center pb-0 text-center">{{ text }}</p>
       <hr />
     </div>
     <v-card

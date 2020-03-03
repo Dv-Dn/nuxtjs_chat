@@ -7,7 +7,7 @@ export default {
   },
   sockets: {
     connect() {
-      console.log("SOCKET IN INDEX PAGE WAS CONNECTED");
+      console.log("socket connected");
     }
   },
   data: () => ({
@@ -18,9 +18,19 @@ export default {
       v => (v && v.length <= 15) || "Name must be less than 10 characters"
     ],
     room: "",
-    roomRules: [v => !!v || "Enter room name"]
+    roomRules: [v => !!v || "Enter room name"],
+    message: "",
+    snackbar: false
   }),
-
+  mounted() {
+    const { message } = this.$route.query;
+    if (message === "noUser") {
+      this.message = "Enter the data";
+    } else if (message === "leftChat") {
+      this.message = "You left the chat";
+    }
+    this.snackbar = !!this.message;
+  },
   methods: {
     submit() {
       if (this.$refs.form.validate()) {
@@ -47,6 +57,13 @@ export default {
   <v-layout justify-center>
     <!-- <v-col> -->
     <v-card min-width="400" max-width="600" width="100%">
+      <v-snackbar v-model="snackbar" :timeout="5555" color="primary">
+        {{ message }}
+        <v-btn text @click="snackbar = false">
+          Close
+        </v-btn>
+      </v-snackbar>
+
       <v-card-title class="display-1">Login</v-card-title>
       <v-card-text>
         <v-form ref="form" v-model="valid" lazy-validation>

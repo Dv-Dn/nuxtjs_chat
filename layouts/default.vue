@@ -8,9 +8,8 @@ export default {
   methods: {
     exit() {
       this.$socket.emit("userLeft", this.user.id, () => {
-        this.$router.push("/?leftChat");
+        this.$router.push("/?message=leftChat");
         this.$store.commit("CLEAR_USER");
-        ff;
       });
     }
   }
