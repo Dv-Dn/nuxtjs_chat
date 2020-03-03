@@ -12,14 +12,14 @@ async function start() {
   await nuxt.ready();
   if (config.dev) {
     const builder = new Builder(nuxt);
-    await builder.build();
+    await builder.build();G
   }
 
   app.use(nuxt.render);
 
   server.listen(port, () => {
     consola.ready({
-      message: `Server listening on http://${host}`,
+      message: `Server listening on http://${host}:${port}`,
       badge: true
     });
   });
